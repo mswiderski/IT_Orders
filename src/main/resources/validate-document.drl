@@ -10,12 +10,12 @@ import org.jbpm.services.api.service.ServiceRegistry;
 rule "Invalid document name - reupload"
 when 
     $caseData : CaseFileInstance()
-    Document(name == "invalid.pdf") from $caseData.getData("hardware_spec")
+    Document(name == "invalid.pdf") from $caseData.getData("hwSpec")
           
 then 
     
     System.out.println("Hardware specification is invalid");
-    $caseData.remove("hardware_spec");
+    $caseData.remove("hwSpec");
     update($caseData);
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
     caseService.triggerAdHocFragment($caseData.getCaseId(), "Prepare hardware spec", null);
