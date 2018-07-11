@@ -18,5 +18,5 @@ then
     $caseData.remove("hardware_spec");
     update($caseData);
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
-    caseService.triggerAdHocFragment($caseData.getCaseId(), "", null);
+    caseService.triggerAdHocFragment($caseData.getCaseId(), "Prepare hardware spec", null);
 end
