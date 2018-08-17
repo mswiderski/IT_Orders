@@ -29,7 +29,7 @@
         </work-item-handler>
         <work-item-handler>
             <resolver>mvel</resolver>
-            <identifier>new org.jbpm.process.workitem.rest.RESTWorkItemHandler("kieserver", "kieserver1!", classLoader, true)</identifier>
+            <identifier>new org.jbpm.process.workitem.rest.RESTWorkItemHandler("kieserver", "kieserver1!", classLoader)</identifier>
             <parameters/>
             <name>Rest</name>
         </work-item-handler>
