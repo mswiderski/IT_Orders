@@ -20,3 +20,14 @@ then
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
     caseService.triggerAdHocFragment($caseData.getCaseId(), "Prepare hardware spec", null);
 end
+
+rule "Mark as ordered"
+when 
+    $caseData : CaseFileInstance(data.get("orderNumber") != null, data.get("ordered") == null)
+          
+then 
+    
+    System.out.println("Order has been placed with number " + $caseData.getData("orderNumber"));
+    $caseData.add("ordered", true);
+    update($caseData);
+end
