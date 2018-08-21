@@ -6,12 +6,65 @@ package org.jbpm.demo.itorders;
 
 public class Order implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public Order() {
-    }
+	private java.lang.Integer id;
+	private java.lang.String name;
+	private java.lang.String reference;
+	private java.lang.String origin;
+	private java.lang.String orderNumber;
 
+	public Order() {
+	}
 
+	public java.lang.Integer getId() {
+		return this.id;
+	}
 
+	public void setId(java.lang.Integer id) {
+		this.id = id;
+	}
+
+	public java.lang.String getName() {
+		return this.name;
+	}
+
+	public void setName(java.lang.String name) {
+		this.name = name;
+	}
+
+	public java.lang.String getReference() {
+		return this.reference;
+	}
+
+	public void setReference(java.lang.String reference) {
+		this.reference = reference;
+	}
+
+	public java.lang.String getOrigin() {
+		return this.origin;
+	}
+
+	public void setOrigin(java.lang.String origin) {
+		this.origin = origin;
+	}
+
+	public java.lang.String getOrderNumber() {
+		return this.orderNumber;
+	}
+
+	public void setOrderNumber(java.lang.String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+	public Order(java.lang.Integer id, java.lang.String name,
+			java.lang.String reference, java.lang.String origin,
+			java.lang.String orderNumber) {
+		this.id = id;
+		this.name = name;
+		this.reference = reference;
+		this.origin = origin;
+		this.orderNumber = orderNumber;
+	}
 
 }
