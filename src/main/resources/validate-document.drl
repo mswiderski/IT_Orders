@@ -42,7 +42,8 @@ when
     $caseData : CaseFileInstance(data.get("orderNumber") != null, data.get("ordered") == null)
           
 then 
-    
+    Order order =  (Order)$caseData.getData("order");
+    order.setOrderNumber((String)$caseData.getData("orderNumber"));
     System.out.println("Order has been placed with number " + $caseData.getData("orderNumber"));
     $caseData.add("ordered", true);
     update($caseData);
