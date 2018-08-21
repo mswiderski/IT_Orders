@@ -66,5 +66,10 @@ public class Order implements java.io.Serializable {
 		this.origin = origin;
 		this.orderNumber = orderNumber;
 	}
+	
+	@Override
+    public String toString() {
+        return "Order [id=" + id + ", name=" + name + ", reference=" + reference + ", origin=" + origin + ", orderNumber=" + orderNumber + "]";
+    }
 
 }
