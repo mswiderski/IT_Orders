@@ -6,6 +6,22 @@ import org.jbpm.casemgmt.api.CaseService;
 import org.jbpm.casemgmt.api.model.instance.CaseFileInstance;
 import org.jbpm.document.Document;
 import org.jbpm.services.api.service.ServiceRegistry;
+import org.jbpm.demo.itorders.Order;
+import org.kie.api.runtime.process.CaseAssignment;
+
+rule "Setup order"
+when 
+    $caseData : CaseFileInstance(data.get("order") == null)
+          
+then 
+    Order order = new Order();
+    order.setName(((CaseAssignment)$caseData).getAssignments("owner").iterator().next().getId());
+    order.setReference($caseData.getCaseId());
+    order.setOrigin(System.getProperty("org.kie.server.location") + "/containers/itorders/cases/instances/" + $caseData.getCaseId() + "/caseFile");
+    System.out.println("Order setup");
+    $caseData.add("order", order);
+    update($caseData);
+end
 
 rule "Invalid document name - reupload"
 when 
